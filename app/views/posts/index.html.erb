@@ -1,23 +1,14 @@
-<div class="panel panel-default">
-<%= form_for Post.new do |f| %>
+<%= form_for Post.new, remote: true do |f| %>
 <div class="form-group">
-  <%= f.text_area :content, class: 'form-group' %>
+    <%= f.text_area :content, :class => "form-control" %>
 </div>
 <div class="form-group">
-  <%= f.submit :class => "btn btn-primary" %>
+    <%= f.submit :class => "btn btn-primary" %>
 </div>
 <% end %>
-    </div>
-<% @posts.each do |post| %>
-<div id="post-<%= post.id %>" class="panel panel-default">
-    <div class="panel-heading"><%= post.user.display_name %></div>
-    <div class="panel-body">
-        <%= post.content %>
-        <% if current_user && post.user.display_name %>
-            <p class="text-right">
-                <%= link_to 'delete', post_path(post), method: :delete, :remote => true,class: 'btn btn-danger' %>
-            </p>
-        <% end %>
-    </div>
+
+<div id="post-list">
+    <% @posts.each do |post| %>
+     <%= render partial:  "post", locals:   { post:  post } %>
+    <% end %>
 </div>
-<% end %>
