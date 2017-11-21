@@ -1,0 +1,17 @@
+<p>
+  <a id="my-open-click">Open</a>
+</p>
+
+<div id="foo" style="border: 1px solid red;">
+  <a id="my-hide-click">Hide</a>
+  <p>bar</p>
+</div>
+<script type="text/javascript">
+    $('#foo').hide();
+    $('#my-open-click').click(function(){
+        $('#foo').fadeIn(2000);
+    })
+    $('#my-hide-click').click(function(){
+        $('#foo').fadeOut(1000);
+    })
+</script>
