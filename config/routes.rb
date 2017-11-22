@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get "/jquery-5" => "pages#jquery_5"
   resources :posts do
       member do
-            post 'like' => 'posts#like'
-            post "unlike" => "posts#unlike"
+            post :like
+            post :unlike
       end
   end
 

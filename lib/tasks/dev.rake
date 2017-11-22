@@ -2,11 +2,11 @@ namespace :dev do
 
   task :fake => :environment do
     users = []
-    1.times do
+    10.times do
       users << User.create!( :email => Faker::Internet.email, :password => "12345678")
     end
 
-    6.times do |i|
+    60.times do |i|
       post = Post.create!( :content => Faker::Lorem.paragraph,
                             :user_id => users.sample.id )
 

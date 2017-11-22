@@ -8,6 +8,3 @@
     <%= link_to "1", like_post_path(post),:remote => true, :method => :post, :class => "btn btn-primary" %>
   <% end %>
 <% end %>
-<% if current_user && post.user == current_user %>
-    <%= link_to "Delete", post_path(post), :method => :delete, :class => "btn btn-danger", :remote => true %>
-<% end %>
